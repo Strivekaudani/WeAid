@@ -1,0 +1,767 @@
+#:import utils kivy.utils
+
+WindowManager:
+    Index:
+    Child:
+    # PlyerData:
+    # ChildData:
+    Facial:
+    Login:
+    SignUp:
+    Home:
+    Mapp:
+
+<Index>
+    name: "Index Page"
+
+    MDLabel:
+        text: "Select User"
+        font_size: "22sp"
+        font_name: "Poppins-Medium.ttf"
+        # color: 120/255, 120/255, 120/255, 1
+        pos_hint: {"center_x": .6, "center_y": .9}
+
+    Button:
+        text: "User"
+        background_color: 0,0,0,0
+        font_name: "Poppins-Medium.ttf"
+        size_hint: .79, .08
+        pos_hint: {"center_x": .5, "center_y": .61}
+        canvas.before:
+            Color:
+                rgb: 226/255, 0, 48/255, 1
+            RoundedRectangle:
+                size: self.size
+                pos: self.pos
+                radius: [2]
+        on_release:
+            app.root.current = "Child Page"
+            root.manager.transition.direction = "left"
+
+    Button:
+        text: "Guardian"
+        background_color: 0,0,0,0
+        font_name: "Poppins-Medium.ttf"
+        size_hint: .79, .08
+        pos_hint: {"center_x": .5, "center_y": .4}
+        canvas.before:
+            Color:
+                rgb: 226/255, 0, 48/255, 1
+            RoundedRectangle:
+                size: self.size
+                pos: self.pos
+                radius: [2]
+        on_release:
+            app.root.current = "Login page"
+            root.manager.transition.direction = "left"
+
+<Child>
+    name: "Child Page"
+    MDFloatLayout:
+        md_bg_color: 1, 1, 1, 1
+
+        MDIconButton:
+            icon: "chevron-left"
+            user_font_size: "35sp"
+            pos_hint: {"center_x": .12,"center_y": .95}
+            on_release:
+                app.root.current = "Index Page"
+                root.manager.transition.direction = "right"
+        MDLabel:
+            text: "Back"
+            font_size: "18sp"
+            font_name: "Poppins-Regular.ttf"
+            pos_hint: {"center_x": .65, "center_y": .949}
+        MDLabel:
+            text: "Welcome. Please pair"
+            font_size: "22sp"
+            font_name: "Poppins-Medium.ttf"
+            color: 120/255, 120/255, 120/255, 1
+            pos_hint: {"center_x": .6, "center_y": .8}
+        MDLabel:
+            text: "device first."
+            font_size: "22sp"
+            font_name: "Poppins-Medium.ttf"
+            color: 120/255, 120/255, 120/255, 1
+            pos_hint: {"center_x": .6, "center_y": .75}
+        Button:
+            # text: "Facial"
+            text: "Bluetooth"
+            background_color: 0,0,0,0
+            font_name: "Poppins-Medium.ttf"
+            size_hint: .79, .08
+            pos_hint: {"center_x": .5, "center_y": .60}
+            canvas.before:
+                Color:
+                    rgb: 226/255, 0, 48/255, 1
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [2]
+            on_release:
+                # app.root.current = "Facial Recognition Page"
+                # root.manager.transition.direction = "left"
+                root.tell_blue()
+        # Button:
+        #     text: "Bluetooth"
+        #     background_color: 0,0,0,0
+        #     font_name: "Poppins-Medium.ttf"
+        #     size_hint: .79, .08
+        #     pos_hint: {"center_x": .5, "center_y": .45}
+        #     canvas.before:
+        #         Color:
+        #             rgb: 226/255, 0, 48/255, 1
+        #         RoundedRectangle:
+        #             size: self.size
+        #             pos: self.pos
+        #             radius: [2]
+        #     on_release:
+        #         root.GetBSerial()
+        #         app.root.current = "Child Data Page"
+        #         root.manager.transition.direction = "left"
+        Button:
+            # text: "Plyer"
+            text: "Facial"
+            background_color: 0,0,0,0
+            font_name: "Poppins-Medium.ttf"
+            size_hint: .79, .08
+            pos_hint: {"center_x": .5, "center_y": .25}
+            canvas.before:
+                Color:
+                    rgb: 226/255, 0, 48/255, 1
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [2]
+            on_release:
+                # app.root.current = "Plyer Page"
+                # root.manager.transition.direction = "left"
+                app.root.current = "Facial Recognition Page"
+                root.manager.transition.direction = "left"
+
+# <PlyerData>
+#     name: "Plyer Page"
+#     MDFloatLayout:
+#         md_bg_color: 1, 1, 1, 1
+#
+#         MDIconButton:
+#             icon: "chevron-left"
+#             user_font_size: "35sp"
+#             pos_hint: {"center_x": .12,"center_y": .95}
+#             on_release:
+#                 app.root.current = "Index Page"
+#                 root.manager.transition.direction = "right"
+#         MDLabel:
+#             text: "Back"
+#             font_size: "18sp"
+#             font_name: "Poppins-Regular.ttf"
+#             pos_hint: {"center_x": .65, "center_y": .949}
+#         # MDLabel:
+#         #     text: "Try Plyer"
+#         #     font_size: "22sp"
+#         #     font_name: "Poppins-Medium.ttf"
+#         #     color: 120/255, 120/255, 120/255, 1
+#         #     pos_hint: {"center_x": .6, "center_y": .849}
+#         # Button:
+#         #     text: "Battery"
+#         #     background_color: 0,0,0,0
+#         #     font_name: "Poppins-Medium.ttf"
+#         #     size_hint: .79, .08
+#         #     pos_hint: {"center_x": .5, "center_y": .749}
+#         #     canvas.before:
+#         #         Color:
+#         #             rgb: 226/255, 0, 48/255, 1
+#         #         RoundedRectangle:
+#         #             size: self.size
+#         #             pos: self.pos
+#         #             radius: [2]
+#         #     on_release:
+#         #         root.show_battery_info()
+#         # Button:
+#         #     text: "Vibrate"
+#         #     background_color: 0,0,0,0
+#         #     font_name: "Poppins-Medium.ttf"
+#         #     size_hint: .79, .08
+#         #     pos_hint: {"center_x": .5, "center_y": .609}
+#         #     canvas.before:
+#         #         Color:
+#         #             rgb: 226/255, 0, 48/255, 1
+#         #         RoundedRectangle:
+#         #             size: self.size
+#         #             pos: self.pos
+#         #             radius: [2]
+#         #     on_release:
+#         #         root.vibrate()
+#         # MDFloatLayout:
+#         #     size_hint: .79, .08
+#         #     pos_hint: {"center_x": .5, "center_y": .469}
+#         #     MDLabel:
+#         #         text: "Text to Speech"
+#         #         font_size: "14sp"
+#         #         font_name: "Poppins-Medium.ttf"
+#         #         pos_hint: {"center_x": .5, "center_y": .9}
+#         #     TextInput:
+#         #         id: tts_text
+#         #         size_hint_y: .75
+#         #         font_name: "Poppins-Regular.ttf"
+#         #         pos_hint: {"center_x": .49, "center_y": .4}
+#         #         background_color: 0, 0, 0, 0
+#         #         cursor_color: 0, 0, 0, 1
+#         #         cursor_width: "2sp"
+#         #         foreground_color: 120/255, 120/255, 120/255, 1
+#         #         font_size: "17sp"
+#         #         multiline: False
+#         #     MDFloatLayout:
+#         #         pos_hint: {"center_x": .5, "center_y": .0}
+#         #         size_hint_y: .03
+#         #         md_bg_color: 120/255, 120/255, 120/255, 1
+#         # Button:
+#         #     text: "Speak"
+#         #     background_color: 0,0,0,0
+#         #     font_name: "Poppins-Medium.ttf"
+#         #     size_hint: .79, .08
+#         #     pos_hint: {"center_x": .5, "center_y": .329}
+#         #     canvas.before:
+#         #         Color:
+#         #             rgb: 226/255, 0, 48/255, 1
+#         #         RoundedRectangle:
+#         #             size: self.size
+#         #             pos: self.pos
+#         #             radius: [2]
+#         #     on_release:
+#         #         root.speak(tts_text)
+#         # MDLabel:
+#         #     id: x_label
+#         #     text: "X: 0"
+#         #     font_size: "22sp"
+#         #     font_name: "Poppins-Medium.ttf"
+#         #     color: 120/255, 120/255, 120/255, 1
+#         #     pos_hint: {"center_x": .6, "center_y": .849}
+#         # MDLabel:
+#         #     id: y_label
+#         #     text: "Y: 0"
+#         #     font_size: "22sp"
+#         #     font_name: "Poppins-Medium.ttf"
+#         #     color: 120/255, 120/255, 120/255, 1
+#         #     pos_hint: {"center_x": .6, "center_y": .649}
+#         # MDLabel:
+#         #     id: z_label
+#         #     text: "Z: 0"
+#         #     font_size: "22sp"
+#         #     font_name: "Poppins-Medium.ttf"
+#         #     color: 120/255, 120/255, 120/255, 1
+#         #     pos_hint: {"center_x": .6, "center_y": .449}
+#         # Button:
+#         #     id: toggle_button
+#         #     text: "Start Accelerometer"
+#         #     background_color: 0,0,0,0
+#         #     font_name: "Poppins-Medium.ttf"
+#         #     size_hint: .79, .08
+#         #     pos_hint: {"center_x": .5, "center_y": .229}
+#         #     canvas.before:
+#         #         Color:
+#         #             rgb: 226/255, 0, 48/255, 1
+#         #         RoundedRectangle:
+#         #             size: self.size
+#         #             pos: self.pos
+#         #             radius: [2]
+#         #     on_release:
+#         #         root.do_toggle()
+
+# <ChildData>
+#     name: "Child Data Page"
+#     MDFloatLayout:
+#         md_bg_color: 1, 1, 1, 1
+#
+#         MDIconButton:
+#             icon: "chevron-left"
+#             user_font_size: "35sp"
+#             pos_hint: {"center_x": .12,"center_y": .95}
+#             on_release:
+#                 app.root.current = "Index Page"
+#                 root.manager.transition.direction = "right"
+#         MDLabel:
+#             text: "Back"
+#             font_size: "18sp"
+#             font_name: "Poppins-Regular.ttf"
+#             pos_hint: {"center_x": .65, "center_y": .949}
+#         MDLabel:
+#             text: "View Data Here"
+#             font_size: "22sp"
+#             font_name: "Poppins-Medium.ttf"
+#             color: 120/255, 120/255, 120/255, 1
+#             pos_hint: {"center_x": .6, "center_y": .8}
+#
+#         MDFloatLayout:
+#             size_hint: .79, .08
+#             pos_hint: {"center_x": .5, "center_y": .62}
+#             MDLabel:
+#                 id: bluetooth_conn
+#                 text: ''
+#                 font_size: "14sp"
+#                 font_name: "Poppins-Medium.ttf"
+#                 pos_hint: {"center_x": .5, "center_y": .9}
+#             MDLabel:
+#                 id: gps_lat_data
+#                 text: "Ultrasound Data"
+#                 font_size: "14sp"
+#                 font_name: "Poppins-Medium.ttf"
+#                 pos_hint: {"center_x": .5, "center_y": .9}
+#             MDLabel:
+#                 id: gps_lon_data
+#                 text: "Ultrasound Data"
+#                 font_size: "14sp"
+#                 font_name: "Poppins-Medium.ttf"
+#                 pos_hint: {"center_x": .5, "center_y": .9}
+#             MDLabel:
+#                 id: imu_x_data
+#                 text: "Ultrasound Data"
+#                 font_size: "14sp"
+#                 font_name: "Poppins-Medium.ttf"
+#                 pos_hint: {"center_x": .5, "center_y": .9}
+#             MDLabel:
+#                 id: imu_y_data
+#                 text: "Ultrasound Data"
+#                 font_size: "14sp"
+#                 font_name: "Poppins-Medium.ttf"
+#                 pos_hint: {"center_x": .5, "center_y": .9}
+#             MDLabel:
+#                 id: distance_data
+#                 text: "Ultrasound Data"
+#                 font_size: "14sp"
+#                 font_name: "Poppins-Medium.ttf"
+#                 pos_hint: {"center_x": .5, "center_y": .9}
+#         Button:
+#             text: "Read Data"
+#             background_color: 0,0,0,0
+#             font_name: "Poppins-Medium.ttf"
+#             size_hint: .79, .08
+#             pos_hint: {"center_x": .5, "center_y": .45}
+#             canvas.before:
+#                 Color:
+#                     rgb: 226/255, 0, 48/255, 1
+#                 RoundedRectangle:
+#                     size: self.size
+#                     pos: self.pos
+#                     radius: [2]
+#             on_release:
+#                 root.GetInput()
+#                 root.show_input()
+
+<Facial>
+    name: "Facial Recognition Page"
+    MDBoxLayout:
+        orientation: 'vertical'
+        # md_bg_color: 1, 1, 1, 1
+
+        # MDIconButton:
+        #     icon: "chevron-left"
+        #     user_font_size: "35sp"
+        #     pos_hint: {"center_x": .12,"center_y": .95}
+        #     on_release:
+        #         app.root.current = "Child Page"
+        #         root.manager.transition.direction = "right"
+        # MDLabel:
+        #     text: "Back"
+        #     font_size: "18sp"
+        #     font_name: "Poppins-Regular.ttf"
+        #     pos_hint: {"center_x": .65, "center_y": .949}
+
+        Image:
+            id: web_cam
+            size_hint: 1, .8
+            pos_hint: {"center_x": .5,"center_y": .9}
+        Button:
+            text: "Veryify"
+            background_color: 0,0,0,0
+            font_name: "Poppins-Medium.ttf"
+            size_hint: .79, .08
+            pos_hint: {"center_x": .5, "center_y": .20}
+            canvas.before:
+                Color:
+                    rgb: 226/255, 0, 48/255, 1
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [2]
+            on_press: root.buildbuild()
+            on_release: root.verify()
+        MDLabel:
+            id: verification_label
+            text: "Verification Uninitiated"
+            font_size: "22sp"
+            font_name: "Poppins-Medium.ttf"
+            color: 120/255, 120/255, 120/255, 1
+            pos_hint: {"center_x": .6, "center_y": .12}
+
+
+<Login>
+    name: "Login page"
+    MDFloatLayout:
+        md_bg_color: 1, 1, 1, 1
+
+        MDIconButton:
+            icon: "chevron-left"
+            user_font_size: "35sp"
+            pos_hint: {"center_x": .12,"center_y": .95}
+            on_release:
+                app.root.current = "Index Page"
+                root.manager.transition.direction = "right"
+        MDLabel:
+            text: "Back"
+            font_size: "18sp"
+            font_name: "Poppins-Regular.ttf"
+            pos_hint: {"center_x": .65, "center_y": .949}
+        MDLabel:
+            text: "Sign In"
+            font_size: "22sp"
+            font_name: "Poppins-Medium.ttf"
+            color: 120/255, 120/255, 120/255, 1
+            pos_hint: {"center_x": .6, "center_y": .8}
+
+        MDFloatLayout:
+            size_hint: .79, .08
+            pos_hint: {"center_x": .5, "center_y": .62}
+            MDLabel:
+                text: "Username"
+                font_size: "14sp"
+                font_name: "Poppins-Medium.ttf"
+                pos_hint: {"center_x": .5, "center_y": .9}
+            TextInput:
+                id: email
+                size_hint_y: .75
+                font_name: "Poppins-Regular.ttf"
+                pos_hint: {"center_x": .49, "center_y": .4}
+                background_color: 0, 0, 0, 0
+                cursor_color: 0, 0, 0, 1
+                cursor_width: "2sp"
+                foreground_color: 120/255, 120/255, 120/255, 1
+                font_size: "17sp"
+                multiline: False
+            Image:
+                source: "user.png"
+                pos_hint: {"center_x": .96, "center_y": .5}
+                size_hint: .5, .5
+            MDFloatLayout:
+                pos_hint: {"center_x": .5, "center_y": .0}
+                size_hint_y: .03
+                md_bg_color: 120/255, 120/255, 120/255, 1
+        MDFloatLayout:
+            size_hint: .79, .08
+            pos_hint: {"center_x": .5, "center_y": .48}
+            MDLabel:
+                text: "Password"
+                font_size: "14sp"
+                font_name: "Poppins-Medium.ttf"
+                pos_hint: {"center_x": .5, "center_y": .9}
+            TextInput:
+                id: password
+                size_hint_y: .75
+                font_name: "Poppins-Regular.ttf"
+                pos_hint: {"center_x": .49, "center_y": .4}
+                background_color: 0, 0, 0, 0
+                cursor_color: 0, 0, 0, 1
+                cursor_width: "2sp"
+                font_size: "17sp"
+                multiline: False
+                password: True
+            Image:
+                source: "key.png"
+                pos_hint: {"center_x": .96, "center_y": .5}
+                size_hint: .4, .4
+            MDFloatLayout:
+                pos_hint: {"center_x": .5, "center_y": .0}
+                size_hint_y: .03
+                md_bg_color: 120/255, 120/255, 120/255, 1
+        Button:
+            text: "Login"
+            background_color: 0,0,0,0
+            font_name: "Poppins-Medium.ttf"
+            size_hint: .79, .08
+            pos_hint: {"center_x": .5, "center_y": .35}
+            canvas.before:
+                Color:
+                    rgb: 226/255, 0, 48/255, 1
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [2]
+            on_press: root.signin()
+            on_release:
+                # if root.successful is True:\
+                app.root.current = "Home page"
+                root.manager.transition.direction = "left"
+        MDTextButton:
+            text: "Forgot Password?"
+            font_size: "13sp"
+            pos_hint: {"center_x": .5, "center_y": .27}
+            halign: "center"
+            color: 120/255, 120/255, 120/255, 1
+
+        MDLabel:
+            id: signup_label
+            text: "Don't have an account?"
+            font_size: "13sp"
+            halign: 'center'
+            pos_hint: {"center_x": .43, "center_y": .1}
+
+        MDTextButton:
+            text: "Sign Up"
+            font_size: "13sp"
+            color: (102/255,153/255,204/255,1)
+            halign: "center"
+            pos_hint: {'center_y':0.1, 'center_x':0.69}
+            on_release:
+                app.root.current = "Sign up page"
+                root.manager.transition.direction = "left"
+
+        # Widget:
+        #     size_hint_y: None
+        #     height: 10
+
+<SignUp>
+    name: "Sign up page"
+
+    MDFloatLayout:
+        md_bg_color: 1, 1, 1, 1
+
+        MDIconButton:
+            icon: "chevron-left"
+            user_font_size: "35sp"
+            pos_hint: {"center_x": .12,"center_y": .95}
+            on_release:
+                app.root.current = "Index Page"
+                root.manager.transition.direction = "right"
+        MDLabel:
+            text: "Back"
+            font_size: "18sp"
+            font_name: "Poppins-Regular.ttf"
+            pos_hint: {"center_x": .65, "center_y": .949}
+        MDLabel:
+            text: "Create Account"
+            font_size: "22sp"
+            font_name: "Poppins-Medium.ttf"
+            color: 120/255, 120/255, 120/255, 1
+            pos_hint: {"center_x": .6, "center_y": .899}
+
+        MDFloatLayout:
+            size_hint: .79, .08
+            pos_hint: {"center_x": .5, "center_y": .80}
+            MDLabel:
+                text: "Full Name"
+                font_size: "14sp"
+                font_name: "Poppins-Medium.ttf"
+                pos_hint: {"center_x": .5, "center_y": .9}
+            TextInput:
+                id: full_name
+                size_hint_y: .75
+                font_name: "Poppins-Regular.ttf"
+                pos_hint: {"center_x": .49, "center_y": .4}
+                background_color: 0, 0, 0, 0
+                cursor_color: 0, 0, 0, 1
+                cursor_width: "2sp"
+                foreground_color: 120/255, 120/255, 120/255, 1
+                font_size: "17sp"
+                multiline: False
+            Image:
+                source: "user.png"
+                pos_hint: {"center_x": .96, "center_y": .5}
+                size_hint: .4, .4
+            MDFloatLayout:
+                pos_hint: {"center_x": .5, "center_y": .0}
+                size_hint_y: .03
+                md_bg_color: 120/255, 120/255, 120/255, 1
+        MDFloatLayout:
+            size_hint: .79, .08
+            pos_hint: {"center_x": .5, "center_y": .66}
+            MDLabel:
+                text: "Email Address"
+                font_size: "14sp"
+                font_name: "Poppins-Medium.ttf"
+                pos_hint: {"center_x": .5, "center_y": .9}
+            TextInput:
+                id: email
+                size_hint_y: .75
+                font_name: "Poppins-Regular.ttf"
+                pos_hint: {"center_x": .49, "center_y": .4}
+                background_color: 0, 0, 0, 0
+                cursor_color: 0, 0, 0, 1
+                cursor_width: "2sp"
+                font_size: "17sp"
+                multiline: False
+            Image:
+                source: "email.png"
+                pos_hint: {"center_x": .96, "center_y": .5}
+                size_hint: .4, .4
+            MDFloatLayout:
+                pos_hint: {"center_x": .5, "center_y": .0}
+                size_hint_y: .03
+                md_bg_color: 120/255, 120/255, 120/255, 1
+        MDFloatLayout:
+            size_hint: .79, .08
+            pos_hint: {"center_x": .5, "center_y": .54}
+            MDLabel:
+                text: "Unique Identity"
+                font_size: "14sp"
+                font_name: "Poppins-Medium.ttf"
+                pos_hint: {"center_x": .5, "center_y": .9}
+            TextInput:
+                id: question
+                size_hint_y: .75
+                font_name: "Poppins-Regular.ttf"
+                pos_hint: {"center_x": .49, "center_y": .4}
+                background_color: 0, 0, 0, 0
+                cursor_color: 0, 0, 0, 1
+                cursor_width: "2sp"
+                font_size: "17sp"
+                multiline: False
+            Image:
+                source: "email.png"
+                pos_hint: {"center_x": .96, "center_y": .5}
+                size_hint: .4, .4
+            MDFloatLayout:
+                pos_hint: {"center_x": .5, "center_y": .0}
+                size_hint_y: .03
+                md_bg_color: 120/255, 120/255, 120/255, 1
+
+        MDFloatLayout:
+            size_hint: .79, .08
+            pos_hint: {"center_x": .5, "center_y": .40}
+            MDLabel:
+                text: "Password"
+                font_size: "14sp"
+                font_name: "Poppins-Medium.ttf"
+                pos_hint: {"center_x": .5, "center_y": .9}
+            TextInput:
+                id: password
+                size_hint_y: .75
+                font_name: "Poppins-Regular.ttf"
+                pos_hint: {"center_x": .49, "center_y": .4}
+                background_color: 0, 0, 0, 0
+                cursor_color: 0, 0, 0, 1
+                cursor_width: "2sp"
+                foreground_color: 120/255, 120/255, 120/255, 1
+                font_size: "17sp"
+                multiline: False
+                password: True
+            Image:
+                source: "key.png"
+                pos_hint: {"center_x": .96, "center_y": .5}
+                size_hint: .4, .4
+            MDFloatLayout:
+                pos_hint: {"center_x": .5, "center_y": .0}
+                size_hint_y: .03
+                md_bg_color: 120/255, 120/255, 120/255, 1
+        MDFloatLayout:
+            size_hint: .79, .08
+            pos_hint: {"center_x": .5, "center_y": .26}
+            MDLabel:
+                text: "Confirm Password"
+                font_size: "14sp"
+                font_name: "Poppins-Medium.ttf"
+                pos_hint: {"center_x": .5, "center_y": .9}
+            TextInput:
+                id: confirm_password
+                size_hint_y: .75
+                font_name: "Poppins-Regular.ttf"
+                pos_hint: {"center_x": .49, "center_y": .4}
+                background_color: 0, 0, 0, 0
+                cursor_color: 0, 0, 0, 1
+                cursor_width: "2sp"
+                font_size: "17sp"
+                multiline: False
+                password: True
+            Image:
+                source: "key.png"
+                pos_hint: {"center_x": .96, "center_y": .5}
+                size_hint: .4, .4
+            MDFloatLayout:
+                pos_hint: {"center_x": .5, "center_y": .0}
+                size_hint_y: .03
+                md_bg_color: 120/255, 120/255, 120/255, 1
+
+        Button:
+            text: "Register"
+            background_color: 0,0,0,0
+            font_name: "Poppins-Medium.ttf"
+            size_hint: .79, .08
+            pos_hint: {"center_x": .5, "center_y": .115}
+            canvas.before:
+                Color:
+                    rgb: 226/255, 0, 48/255, 1
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [2]
+            on_press: root.signup()
+            on_release:
+                app.root.current = "Login page"
+                root.manager.transition.direction = "left"
+
+#Navbar
+<Home>
+    name: "Home page"
+
+    MDFloatLayout:
+        md_bg_color: 1, 1, 1, 1
+
+        MDIconButton:
+            icon: "chevron-left"
+            user_font_size: "35sp"
+            pos_hint: {"center_x": .12,"center_y": .95}
+            on_release:
+                app.root.current = "Index Page"
+                root.manager.transition.direction = "right"
+        MDLabel:
+            text: "Back"
+            font_size: "18sp"
+            font_name: "Poppins-Regular.ttf"
+            pos_hint: {"center_x": .65, "center_y": .949}
+        MDLabel:
+            text: "Welcome Strive"
+            font_size: "22sp"
+            font_name: "Poppins-Medium.ttf"
+            color: 120/255, 120/255, 120/255, 1
+            pos_hint: {"center_x": .6, "center_y": .8}
+        Button:
+            text: "Get Location"
+            background_color: 0,0,0,0
+            font_name: "Poppins-Medium.ttf"
+            size_hint: .79, .08
+            pos_hint: {"center_x": .5, "center_y": .60}
+            canvas.before:
+                Color:
+                    rgb: 226/255, 0, 48/255, 1
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [2]
+            on_release:
+                app.root.current = "Map page"
+                root.manager.transition.direction = "left"
+        # Button:
+        #     text: "Get Performance"
+        #     background_color: 0,0,0,0
+        #     font_name: "Poppins-Medium.ttf"
+        #     size_hint: .79, .08
+        #     pos_hint: {"center_x": .5, "center_y": .60}
+        #     canvas.before:
+        #         Color:
+        #             rgb: 226/255, 0, 48/255, 1
+        #         RoundedRectangle:
+        #             size: self.size
+        #             pos: self.pos
+        #             radius: [2]
+        #     on_release:
+        #         app.root.current = "Map page"
+        #         root.manager.transition.direction = "left"
+
+<Mapp>
+    name: "Map page"
+    on_enter: root.on_start()
+
+    MapView:
+        id: map
+        lat: -20.15739
+        lon: 28.64028
+        zoom: 15
